@@ -28,7 +28,7 @@ private static readonly int WALK_PROPERTY = Animator.StringToHash("Walking");
 private float gravity = -9.81f;
 [SerializeField] private float gravityMultiplier = 3.0f;
 private float velocity = -1.0f;
-[SerializeField] private float jumpForce;
+[SerializeField] private Transform attackPoint; //needed to 'flip' according to character direction
     public void OnMove(InputAction.CallbackContext context){
         move = context.ReadValue<Vector2>();
         direction = new Vector3(move.x, 0.0f, move.y);
@@ -36,11 +36,14 @@ private float velocity = -1.0f;
         // moving right 
         if (move.x > 0){
             spriteRenderer.flipX = false;
+            attackPoint.localPosition = new Vector3(1,0,0);
         }
 
         // moving left
         else if (move.x < 0){
             spriteRenderer.flipX = true;
+            attackPoint.localPosition = new Vector3(-1,0,0);
+
         }
 
     }
@@ -84,7 +87,7 @@ private float velocity = -1.0f;
             return;
         }
 
-        velocity += jumpForce;
+        // velocity += jumpForce;
 
     }
 

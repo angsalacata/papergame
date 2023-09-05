@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
 {
 
     public Transform targetTransform;
+    
 
     public float updateSpeed = .1f;
 

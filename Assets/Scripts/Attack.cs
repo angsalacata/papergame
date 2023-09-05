@@ -23,6 +23,11 @@ public class Attack : MonoBehaviour
        [SerializeField] 
     private int attackDamage;
 
+
+    public float attackRate = 2f;
+
+    float nextAttackTime = 0;
+
     void Update()
     {
         
@@ -34,12 +39,16 @@ public class Attack : MonoBehaviour
         if (!context.started){
             return;
         }
+
+        if (Time.time >= nextAttackTime){
         animator.SetTrigger("Attack");
         Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
 
-        foreach (Collider enemy in hitEnemies){
+            nextAttackTime = (Time.time + (1f/attackRate));
+            foreach (Collider enemy in hitEnemies){
             Debug.Log(enemy.name);
             enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
+        }
         }
     }
 

@@ -319,12 +319,13 @@ GameObject:
   - component: {fileID: 497301976}
   - component: {fileID: 497301975}
   - component: {fileID: 497301974}
+  - component: {fileID: 497301978}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!64 &497301974
 MeshCollider:
@@ -410,9 +411,41 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1996593801}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &497301978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497301973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 11.02, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.14999999
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 86b0ed3c78c6647c7b6819c7d162b9c4, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &548674570
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,7 +531,8 @@ GameObject:
   m_Component:
   - component: {fileID: 624803892}
   - component: {fileID: 624803893}
-  m_Layer: 0
+  - component: {fileID: 624803894}
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -572,6 +606,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &624803894
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624803891}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b5509b3fe295c41c8a1bd52df02737da, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &645182304
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,7 +938,7 @@ GameObject:
   - component: {fileID: 933369251}
   - component: {fileID: 933369252}
   - component: {fileID: 933369253}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1160,7 +1215,7 @@ GameObject:
   - component: {fileID: 1171995411}
   - component: {fileID: 1171995415}
   - component: {fileID: 1171995416}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1349,6 +1404,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   attackDamage: 2
+  attackRate: 2
 --- !u!1 &1309745661
 GameObject:
   m_ObjectHideFlags: 0
@@ -1360,6 +1416,8 @@ GameObject:
   - component: {fileID: 1309745662}
   - component: {fileID: 1309745663}
   - component: {fileID: 1309745664}
+  - component: {fileID: 1309745666}
+  - component: {fileID: 1309745665}
   m_Layer: 7
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -1376,7 +1434,7 @@ Transform:
   m_GameObject: {fileID: 1309745661}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.04, y: 1.08, z: 0.35}
+  m_LocalPosition: {x: 2.04, y: 0.96, z: 0.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1402,7 +1460,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.33, y: 1.52, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1309745664
 MonoBehaviour:
@@ -1417,6 +1475,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyMaxHealth: 10
+  animator: {fileID: 624803894}
+--- !u!195 &1309745665
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309745661}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 2
+  m_Acceleration: 3
+  avoidancePriority: 50
+  m_AngularSpeed: 0
+  m_StoppingDistance: 1.5
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1.01
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1309745666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309745661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae81a66a5b0554a8c953b8b0c5dd81a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTransform: {fileID: 1171995410}
+  updateSpeed: 0.5
 --- !u!1 &1469928613
 GameObject:
   m_ObjectHideFlags: 0
@@ -1765,12 +1860,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1996593797}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.2953746, y: 0, z: 0, w: 0.9553816}
-  m_LocalPosition: {x: -6.88, y: -0.48, z: 8.72}
-  m_LocalScale: {x: 3.53, y: 4.08, z: 12.27}
+  m_LocalRotation: {x: -0.2953746, y: -0, z: -0, w: 0.9553816}
+  m_LocalPosition: {x: -1.376, y: -0.096, z: 1.7440001}
+  m_LocalScale: {x: 0.70600003, y: 0.8159999, z: 2.454}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 497301977}
   m_LocalEulerAnglesHint: {x: -34.36, y: 0, z: 0}
 --- !u!1 &2054288580
 GameObject:
@@ -1923,7 +2018,6 @@ SceneRoots:
   - {fileID: 497301977}
   - {fileID: 1579305227}
   - {fileID: 59165320}
-  - {fileID: 1996593801}
   - {fileID: 1171995410}
   - {fileID: 645182308}
   - {fileID: 2116385985}

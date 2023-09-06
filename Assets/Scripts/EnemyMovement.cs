@@ -7,25 +7,49 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
 
-    public Transform targetTransform;
+    public Transform targetTransform; // player transform
     
-
+    [SerializeField] private LayerMask groundLayer, playerLayer;
     public float updateSpeed = .1f;
+
 
     private NavMeshAgent enemyNavMeshAgent;
     // Start is called before the first frame update
+
+    // patrolling movement
+    [SerializeField] float range; // range of patrolling
+    Vector3 destination;  // where patrolling enemy walks to
+    bool walkPointSet; // does the enemy know where to walk towards?
+
 
     private void Awake(){
         enemyNavMeshAgent = GetComponent<NavMeshAgent>();
     }
     void Start()
     {
-        StartCoroutine(FollowPlayer());
+        // StartCoroutine(FollowPlayer());
     }
 
     // Update is called once per frame
     void Update()
     {
+        Patrol();
+    }
+
+    void Patrol()
+    {   if (!walkPointSet) LookForDestination();
+        if (walkPointSet) enemyNavMeshAgent.SetDestination(destination);
+        if (Vector3.Distance (transform.position, destination) < 10) walkPointSet = false;
+    }
+
+    void LookForDestination(){
+        float zDest = Random.Range(-range, range);
+        float xDest = Random.Range(-range, range);
+        destination = new Vector3(transform.position.x + xDest, transform.position.y, transform.position.z + zDest);
+
+        if (Physics.Raycast(destination, Vector3.down, 4,  groundLayer)){
+            walkPointSet = true;
+        }
         
     }
 

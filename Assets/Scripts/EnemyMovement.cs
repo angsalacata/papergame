@@ -24,7 +24,7 @@ public class EnemyMovement : MonoBehaviour
 
     // tracking player and attacking player
     private GameObject player;
-    [SerializeField] float playerSightRange, attackRange;
+    [SerializeField] float playerSightRange, attackSightRange;
     [SerializeField] bool playerInSight, playerInAttackRange;
 
     private Transform enemyAttackPoint;
@@ -33,7 +33,7 @@ public class EnemyMovement : MonoBehaviour
     float nextEnemyAttackTime = 0f;
 
     [SerializeField] int attackDamage = 1;
-
+    [SerializeField] float attackRange = 1f; 
     private Animator animator = null;
 
 
@@ -72,7 +72,7 @@ public class EnemyMovement : MonoBehaviour
             enemyAttackPoint.localPosition = new Vector3(-1, 0, 0);
         }
         playerInSight = Physics.CheckSphere(transform.position, playerSightRange, playerLayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
+        playerInAttackRange = Physics.CheckSphere(transform.position, attackSightRange, playerLayer);
 
         if (!playerInSight && !playerInAttackRange) Patrol();
         else if (playerInSight && !playerInAttackRange) Chase();

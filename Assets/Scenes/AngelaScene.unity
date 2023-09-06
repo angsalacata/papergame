@@ -427,7 +427,7 @@ GameObject:
   m_Layer: 6
   m_Name: Attack Point
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -441,7 +441,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 2, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1171995410}
@@ -1588,7 +1588,7 @@ MonoBehaviour:
   animator: {fileID: 933369253}
   spriteRenderer: {fileID: 0}
   attackPoint: {fileID: 454075033}
-  attackRange: 0.5
+  attackRange: 0.75
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
@@ -1741,11 +1741,12 @@ MonoBehaviour:
   updateSpeed: 0.5
   range: 20
   playerSightRange: 7
-  attackRange: 1
+  attackSightRange: 0.5
   playerInSight: 0
   playerInAttackRange: 0
-  enemyAttackRate: 1
+  enemyAttackRate: 0.5
   attackDamage: 1
+  attackRange: 1
 --- !u!1 &1469928613
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,13 +23,13 @@ public class HealthAndInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow)){
-            TakeDamage(1);
+        // if (Input.GetKeyDown(KeyCode.UpArrow)){
+        //     TakeDamage(1);
 
-        }
+        // }
     }
 
-    void TakeDamage(int damage){
+   public void TakeDamage(int damage){
         currentHealth -= damage;
         characterHealthBar.SetHealth(currentHealth);
     }

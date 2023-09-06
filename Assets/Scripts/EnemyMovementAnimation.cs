@@ -27,7 +27,7 @@ public class EnemyMovementAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         Vector3 worldDeltaPosition = agent.nextPosition - transform.position;
+        Vector3 worldDeltaPosition = agent.nextPosition - transform.position;
         float horizontalVel = agent.velocity.x;
 
         // Map 'worldDeltaPosition' to local space
@@ -49,10 +49,6 @@ public class EnemyMovementAnimation : MonoBehaviour
 
         bool shouldWalk = horizontalVel != 0;
 
-        if (Input.GetKeyDown(KeyCode.DownArrow)){
-            Debug.Log(shouldWalk);
-
-        }
         //enemy should face right when moving
         if (horizontalVel > 0){
             spriteRenderer.flipX = false;

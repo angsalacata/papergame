@@ -29,6 +29,7 @@ public class EnemyMovementAnimation : MonoBehaviour
     {
         Vector3 worldDeltaPosition = agent.nextPosition - transform.position;
         float horizontalVel = agent.velocity.x;
+        // Debug.Log(agent.velocity.normalized);
 
         // Map 'worldDeltaPosition' to local space
         float dx = Vector3.Dot (transform.right, worldDeltaPosition);

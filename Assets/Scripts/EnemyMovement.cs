@@ -48,7 +48,7 @@ public class EnemyMovement : MonoBehaviour
     {
         // StartCoroutine(FollowPlayer());
         // enemyAttackPoint = transform.Find("EnemyAttackPoint");
-        Debug.Log(transform.Find("EnemyAttackPoint"));
+        // Debug.Log(transform.Find("EnemyAttackPoint"));
         enemyAttackPoint = transform.Find("EnemyAttackPoint");
 
 
@@ -117,7 +117,7 @@ public class EnemyMovement : MonoBehaviour
                 nextEnemyAttackTime = (Time.time + (1f / enemyAttackRate));
                 foreach (Collider player in hitPlayer)
                 {
-                    Debug.Log("Attacking: " +player.name);
+                    // Debug.Log("Attacking: " +player.name);
                     player.GetComponent<HealthAndInventory>().TakeDamage(attackDamage);
                 }
             

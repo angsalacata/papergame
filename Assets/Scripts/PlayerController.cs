@@ -73,9 +73,12 @@ private float velocity = -1.0f;
             return;
         }
         var targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-        var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref currentVelocity, smoothTime);
+        // var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref currentVelocity, smoothTime);
         // transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
         characterController.Move(direction *speed * Time.deltaTime);
+        Debug.Log(direction);
+        animator.SetFloat("YDirection", direction.z);
+        animator.SetFloat("XDirection", direction.x);
         animator.SetBool(WALK_PROPERTY, true);
     }
 

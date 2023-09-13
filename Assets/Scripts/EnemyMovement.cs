@@ -107,8 +107,8 @@ public class EnemyMovement : MonoBehaviour
     void AttackPlayer()
     {
         //Set Enemy Animation
-        // first check if enemy is already in attack stage, if not trigger animation. if yes do nothing
-        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Attack") && Time.time >= nextEnemyAttackTime)
+        // first check if enemy is already in attack stage, hurt stage, or die stage, if not trigger animation. if yes do nothing
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Attack") && Time.time >= nextEnemyAttackTime && !animator.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Hurt") && !animator.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Die"))
         {
             // set agent destination to current destination to stop movement.
                 enemyNavMeshAgent.SetDestination(transform.position);

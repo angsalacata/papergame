@@ -9,6 +9,7 @@ public class EnemyHealth : MonoBehaviour
   
     [SerializeField] private int enemyMaxHealth;
    [SerializeField] private Animator animator = null;
+   private Collider parentCollider;
 
    // boolean to set walking animation condition
 private static readonly int WALK_PROPERTY = Animator.StringToHash("Walking");
@@ -17,6 +18,8 @@ private static readonly int WALK_PROPERTY = Animator.StringToHash("Walking");
     {
         // start with full health
         currentHealth = enemyMaxHealth;
+        parentCollider = GetComponentInParent<Collider>();
+        Debug.Log(parentCollider);
     }
 
 
@@ -37,7 +40,8 @@ private static readonly int WALK_PROPERTY = Animator.StringToHash("Walking");
     private IEnumerator  Die(){
         //die animation
         animator.SetBool("IsDead", true);
-        yield return new WaitForSeconds(.78f); // currently frog dying animation
+        parentCollider.enabled = false;
+        yield return new WaitForSeconds(.65f); // currently frog dying animation
         //disable enemy
         Debug.Log("enemy died");
         Destroy(gameObject);

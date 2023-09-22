@@ -9,11 +9,11 @@ Shader "Custom/Worldspacetiling"
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags {"RenderType"="Opaque" }
         LOD 100
 
         Pass
-        {           
+        {
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag               
